@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Misitio</title>
+</head>
+<body>
+    {% for cliente in clientes %}
+    <p>-----------</p>
+    <div>
+        <p>DNI: {{cliente.dni}} Nombre: {{cliente.nombre}} Fecha alta: {{cliente.alta}}</p>
+        <p>Dir: {{cliente.direccion}} Móvil: {{client.movil}}</p>
+    </div>
+    <p>-----------</p>
+    {% endfor %}
+</body>
+</html>
