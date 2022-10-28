@@ -1,22 +1,28 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Misitio</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abel&display=swap">
+    <link rel="stylesheet" href="{% static 'css/misitio.css' %}">
 </head>
 <body>
 
-<h2><a href="/">Página web de proyecto</a></h2>
+    {% block content %}
+    
+        {% for cliente in clientes %}
+        <p>-----------</p>
+        <div class="content">
+            <p>DNI: <span class="dni">{{cliente.dni}}</span> Nombre: {{cliente.nombre}} Fecha alta: {{cliente.alta}}</p>
+            <p>Dir: {{cliente.direccion}} Móvil: {{client.movil}}</p>
+        </div>
+        <p>-----------</p>
+        {% endfor %}
 
-    {% for cliente in clientes %}
-    <p>-----------</p>
-    <div>
-        <p>DNI: {{cliente.dni}} Nombre: {{cliente.nombre}} Fecha alta: {{cliente.alta}}</p>
-        <p>Dir: {{cliente.direccion}} Móvil: {{client.movil}}</p>
-    </div>
-    <p>-----------</p>
-    {% endfor %}
+    {% endblock content %}
+
 </body>
 </html>
