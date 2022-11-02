@@ -30,3 +30,7 @@ body {
 .dni {
     color: #882818;
 }
+
+.ms-0 {
+    margin-left: 50px !important;
+}
