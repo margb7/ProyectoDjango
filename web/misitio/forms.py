@@ -7,4 +7,4 @@ class ClienteForm(forms.ModelForm):
     class Meta:
 
         model = Cliente
-        fields = ['dni', 'nombre', 'alta', 'direccion', 'mobile']
+        fields = ['dni', 'nombre', 'alta', 'direccion', 'movil']

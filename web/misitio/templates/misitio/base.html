@@ -11,9 +11,11 @@
 </head>
 <body>
 
-    <header class="page-header">
+    <div class="page-header">
         <h2><a href="/">Página web de proyecto</a></h2>
-    </header>
+        <a href="{% url 'cliente_new' %}" class="top-menu"><span class="glyphicon-plus">Alta cliente</span> </a>
+        <a href="#" class="top-menu"><span class="glyphicon-minus">Baja cliente</span> </a>
+    </div>
 
     <div class="content">
 

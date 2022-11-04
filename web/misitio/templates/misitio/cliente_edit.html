@@ -1,0 +1,18 @@
+{% extends 'misitio/base.html' %}
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="save btn btn-default">Guardar</button>
+</form>
+
+<div class="card bg-primary " style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Tarjeta de ejemplo</h5>
+    <p class="card-text">Texto de ejemplo de tarjeta</p>
+  </div>
+</div>
+
+{% endblock %}
