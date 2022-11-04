@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Misitio</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abel&display=swap">
+    <link rel="stylesheet" href="{% static 'css/misitio.css' %}">
+</head>
+<body>
+
+    <header class="page-header">
+        <h2><a href="/">Página web de proyecto</a></h2>
+    </header>
+
+    <div class="content">
+
+        <div class="row">
+
+            {% block content %}
+            {% endblock content %}
+
+        </div>
+
+    </div>
+
+</body>
+</html>
