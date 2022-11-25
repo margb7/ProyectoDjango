@@ -10,7 +10,27 @@ def clientes_list(req):
     return render(req, 'misitio/clientes_list.html', {'clientes': clientes})
 
 
-def cliente_new(req):
+def home_page(req):
+    return render(req, 'misitio/home_page.html')
+
+
+def ventas_page(req):
+    return render(req, 'misitio/alquiler-venta.html')
+
+
+def servicios_page(req):
+    return render(req, 'misitio/servicios.html')
+
+
+def cuenta_page(req):
+    return render(req, 'misitio/cuenta.html')
+
+
+def cliente_registro(req):
+
+    return render(req, 'misitio/login/registro.html')
+
+def cliente_login(req):
 
     if req.method == 'POST':
 
@@ -25,4 +45,4 @@ def cliente_new(req):
 
         form = ClienteForm()
 
-    return render(req, 'misitio/cliente_edit.html', {'form': form})
+    return render(req, 'misitio/login/inicio_sesion.html', {'form': form})

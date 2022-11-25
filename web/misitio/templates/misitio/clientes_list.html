@@ -3,12 +3,8 @@
 {% block content %}
 
     {% for cliente in clientes %}
-    <p>______________________</p>
-
     <p>DNI: <span class="dni">{{cliente.dni}}</span> Nombre: {{cliente.nombre}} Fecha alta: {{cliente.alta}}</p>
     <p>Dir: {{cliente.direccion}} Móvil: {{cliente.movil}}</p>
-
-    <p>______________________</p>
     {% endfor %}
 
 {% endblock content %}
