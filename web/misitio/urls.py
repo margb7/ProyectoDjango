@@ -11,3 +11,4 @@ urlpatterns = [
     path('servicios/planes', views.planes_page, name="planes_page"),
     path('compra', views.compra_page, name="compra_page")
 ]
+
