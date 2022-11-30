@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpRequest
-from .models import Cliente
+from .models import Cliente, Vinilo
 from django.utils import timezone
 from .forms import ClienteLogin
 
@@ -11,7 +11,10 @@ def clientes_list(req: HttpRequest):
 
 
 def home_page(req: HttpRequest):
-    return render(req, 'misitio/home_page.html')
+
+    vinilos = Vinilo.objects.filter().order_by("-ventas")
+
+    return render(req, 'misitio/home_page.html', {'top_vinilos': vinilos})
 
 
 def ventas_page(req: HttpRequest):
@@ -56,3 +59,28 @@ def planes_page(req: HttpRequest):
         return render(req, 'misitio/servicios/aplicar_planes.html', {'plan': req.GET.get("plan")})
 
     return render(req, 'misitio/servicios/aplicar_planes.html')
+
+
+def compra_page(req: HttpRequest):
+
+    if req.method == "GET":
+
+        if req.GET.get("album_id") != "":
+
+            vinilo = Vinilo.objects.get(id=req.GET.get("album_id"))
+
+            return render(req, 'misitio/compra_vinilo.html', {"vinilo": vinilo, "cantidad": -1, "email": ""})
+
+        ## Error
+        return render(req, 'misitio/compra_vinilo.html')
+
+    elif req.method == "POST":
+
+        vinilo = Vinilo.objects.get(id=req.POST.get("album_id"))
+        cantidad = req.POST.get("cantidad")
+        user_email = req.POST.get("user_email")
+
+        return render(req, 'misitio/compra_vinilo.html', {"vinilo": vinilo, "cantidad": cantidad, "email": user_email})
+
+
+    return render(req, 'misitio/compra_vinilo.html')

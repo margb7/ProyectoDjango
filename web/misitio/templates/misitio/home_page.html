@@ -32,6 +32,43 @@
         <button type="button" class="btn btn-outline-secondary btn-lg px-4"><a href="/cliente/registro" class="text-black-50 text-decoration-none">Regístrate</a></button>
       </div>
     </div>
-  </div>
+</div>
+
+<div class="container-fluid border-top border-dark border-bottom p-3 bg-light">
+
+    <h2 class="my-2">Top ventas</h2>
+
+    <div class="row position-relative">
+
+        {% for vinilo in top_vinilos%}
+
+            <div class="col-2 card mx-1 border rounded-2 position-static">
+
+                <img class="mx-2 mt-3 border rounded-4 " src="../../static/img/{{vinilo.imagen}}"/>
+
+                <div class="card-body row">
+                    <div class="col-sm">
+                        <h6 class="card-title">{{vinilo.nombre}}</h6>
+                        <label class="card-subtitle text-muted small">{{vinilo.artista}}</label>
+                    </div>
+                    <div class="col d-flex align-items-center">
+                        <h5 class="card-subtitle container align-top text-end text-black ">{{vinilo.precio}}€</h5>
+                    </div>
+                    <a class="btn mt-2 btn-primary" href="compra?album_id={{vinilo.id}}">Comprar</a>
+
+                </div>
+
+                <div class="card-footer row">
+                    <h5 class="card-subtitle container align-bottom text-end">{{vinilo.ventas}} uds. vendidas</h5>
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+
+</div>
 
 {% endblock content %}
